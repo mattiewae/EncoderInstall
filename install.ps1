@@ -8,5 +8,6 @@ Expand-Archive -Path .\encoder.zip
 Expand-Archive -Path .\exe.zip
 
 Move-Item .\encoder -Destination C:\ -Force
-Move-Item .\exe\Encoder.lnk $home\Desktop -Force
-Move-Item .\exe\Encoder_V19.exe C:\encoder -Force
+Move-Item .\exe\encoder.lnk $home\Desktop -Force
+Move-Item .\exe\Encoder_V19.exe C:\encoder -Force 
+
