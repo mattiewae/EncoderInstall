@@ -11,3 +11,6 @@ Move-Item .\encoder -Destination C:\ -Force
 Move-Item .\exe\encoder.lnk $home\Desktop -Force
 Move-Item .\exe\Encoder_V19.exe C:\encoder -Force 
 
+Remove-Item .\encoder.zip
+Remove-Item .\exe.zip
+Remove-Item .\exe
