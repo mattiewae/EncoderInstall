@@ -1,3 +1,7 @@
-﻿cup all -y 
+﻿Set-ExecutionPolicy RemoteSigned
 
-cinst install -y win-youtube-dl
+
+Write-Host "Update apps"
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/mattiewae/test/master/updateapps.ps1'))
+
+
