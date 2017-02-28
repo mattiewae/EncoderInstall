@@ -1,7 +1,4 @@
 ﻿Set-ExecutionPolicy RemoteSigned
 
-
-Write-Host "Update apps"
-iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/mattiewae/test/master/updateapps.ps1'))
-
-
+Write-Host "Update Startup"
+iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/mattiewae/EncoderInstall/master/startup.ps1'))
