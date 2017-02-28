@@ -1,4 +1,3 @@
-﻿cup all -y 
+﻿cinst -y win-youtube-dl 
 
-cinst -y win-youtube-dl
-
+cup all -y 
