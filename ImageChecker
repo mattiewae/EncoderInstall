@@ -1,0 +1,403 @@
+
+#TODO
+# presets premiere en media encoder.
+# Allerlei nuttige dingen
+# P2-driver
+# HD-import scipt
+# Usersettings Desktop snelkoppeling
+
+$user = $env:USERPROFILE
+
+$AdobeExport = Test-Path E:\AdobeExport
+$AdobeImport = Test-Path E:\AdobeImport
+$AdobeProjects = Test-Path E:\AdobeProjects
+$P2 = Test-Path E:\P2
+$Temp = Test-Path C:\Temp
+$AdobeUsersSettings = Test-Path $user\Documents\AdobeUserSettings
+$AdobeProjectsLNK = Test-Path $user\Desktop\AdobeProjects.lnk
+$FaspexLNK = Test-Path $user\Desktop\faspex.website
+$Encoder = Test-Path $user\Desktop\Encoder.lnk
+$Dagproject = Test-Path $user\Desktop\Dagproject.lnk
+$BackupSettings = Test-Path $user\Desktop\BackupSettings.lnk
+$LaadSettings = Test-Path $user\Desktop\LaadSettings.lnk
+$ClearDatabase = Test-Path $user\Desktop\ClearDatabase.lnk
+$EncoderControl = Test-Path C:\encoder
+$AdobeUsersSettingsLNK = Test-Path $user\Desktop\UserSettings.lnk
+
+
+
+
+if($AdobeUsersSettingsLNK -eq 'true'){
+    Write-Host "UsersettingsLNK:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\UserSettings.lnk" -Destination '$user\Desktop'
+    Write-Host "AdobeUsersSettings" -foreground 'Red'
+    }
+
+if($EncoderControl -eq 'true'){
+    Write-Host "Encoder:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\encoder" -Destination C:\ -Force -Recurse
+    Write-Host "Encoder" -foreground 'Red'
+    }
+
+if($env:COMPUTERNAME -eq 'LABO'){
+    Write-Host 'Rename PC!' -foreground 'Red'
+    }
+else{
+    write-host "PC naam OK: $env:COMPUTERNAME" -foreground 'Green'
+    }
+
+if($ClearDatabase -eq 'true'){
+    Write-Host "ClearDatabase:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\ClearDatabase.lnk" -Destination $user\Desktop 
+    Write-Host "ClearDatabase" -foreground 'Red'
+    }
+
+if($LaadSettings -eq 'true'){ 
+    Write-Host "LaadSettings:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+     Copy-Item "$user\Desktop\Admin Tools\Scripts\LaadSettings.lnk" -Destination $user\Desktop
+     Write-Host "LaadSettings" -foreground 'Red'
+    }
+
+if($BackupSettings -eq 'true'){ 
+    Write-Host "BackupSettings:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+     Copy-Item "$user\Desktop\Admin Tools\Scripts\BackupSettings.lnk" -Destination $user\Desktop
+     Write-Host "BackupSettings" -foreground 'Red'
+    }
+
+if($AdobeExport -eq 'true'){
+    Write-Host "AdobeExport:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    New-Item -ItemType Directory E:\AdobeExport
+     Write-Host "AdobeExport" -foreground 'Red'
+    }
+
+if($AdobeImport -eq 'true'){
+    Write-Host "AdobeImport:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    New-Item -ItemType Directory E:\AdobeImport
+    Write-Host "AdobeImport" -foreground 'Red'
+    }
+
+if($AdobeProjects -eq 'true'){
+    Write-Host "AdobeProjects:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    New-Item -ItemType Directory E:\AdobeProjects
+    Write-Host "AdobeProjects" -foreground 'Red'
+    }
+
+if($P2 -eq 'true'){
+    Write-Host "P2:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    New-Item -ItemType Directory E:\P2
+    Write-Host "P2" -foreground 'Red'
+    }
+
+if($Temp -eq 'true'){ 
+    Write-Host "Temp:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    New-Item -ItemType Directory C:\Temp
+    Write-Host "Temp" -foreground 'Red'
+    }
+
+if($AdobeUsersSettings -eq 'true'){
+    Write-Host "AdobeUsersSettings:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    New-Item -ItemType Directory $user\Documents\AdobeUserSettings
+    Write-Host "AdobeUsersSettings" -foreground 'Red'
+    }
+    
+if($AdobeProjectsLNK -eq 'true'){
+    Write-Host "AdobeProjectsLNK:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\AdobeProjects.lnk" -Destination $user\Desktop
+    Write-Host "AdobeProjectsLNK" -foreground 'Red'
+    }
+
+if($FaspexLNK -eq 'true'){
+    Write-Host "FaspexLNK:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\faspex.website" -Destination $user\Desktop
+    Write-Host "FaspexLNK" -foreground 'Red'
+    }
+
+if($Encoder -eq 'true'){
+    Write-Host "EncoderDesktopLNK:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\Encoder.lnk" -Destination $user\Desktop
+    Write-Host "EncoderDesktopLNK" -foreground 'Red'
+    }
+
+if($Dagproject -eq 'true'){
+    Write-Host "Dagproject:OK" -foreground 'Green'
+}
+else{
+    write-host "`n"
+    Copy-Item "$user\Desktop\Admin Tools\Scripts\Dagproject.lnk" -Destination $user\Desktop
+    Write-Host "Dagproject" -foreground 'Red'
+    }
+
+$ChkFile = "C:\ProgramData\chocolatey\choco.exe" 
+
+$FileExists = Test-Path $ChkFile 
+
+    If ($FileExists -eq $True) {
+
+        Write-Host "Choco already installed"
+        Write-Host "Installing applications from Chocolatey"
+        #cup all -y
+
+    }
+
+    else {
+
+        ######################################################
+
+        # Install apps using Chocolatey
+
+        ######################################################
+
+        Write-Host "Installing Chocolatey"
+
+        iex ((new-object net.webclient).DownloadString('http://bit.ly/psChocInstall'))
+
+        Write-Host
+
+    }
+
+
+
+
+#TODO
+# presets premiere en media encoder.
+# Allerlei nuttige dingen
+# P2-driver
+# HD-import scipt
+# Usersettings Desktop snelkoppeling
+
+
+#$AdobeExport = Test-Path E:\AdobeExport
+#$AdobeImport = Test-Path E:\AdobeImport
+#$AdobeProjects = Test-Path E:\AdobeProjects
+#$P2 = Test-Path E:\P2
+#$Temp = Test-Path C:\Temp
+#$AdobeUsersSettings = Test-Path C:\Users\ENG\Documents\AdobeUserSettings
+#$AdobeProjectsLNK = Test-Path C:\Users\ENG\Desktop\AdobeProjects.lnk
+#$FaspexLNK = Test-Path C:\Users\ENG\Desktop\faspex.website
+#$Encoder = Test-Path C:\Users\ENG\Desktop\Encoder.lnk
+#$Dagproject = Test-Path C:\Users\ENG\Desktop\Dagproject.lnk
+#$BackupSettings = Test-Path C:\Users\ENG\Desktop\BackupSettings.lnk
+#$LaadSettings = Test-Path C:\Users\ENG\Desktop\LaadSettings.lnk
+#$ClearDatabase = Test-Path C:\Users\ENG\Desktop\ClearDatabase.lnk
+#$EncoderControl = Test-Path C:\encoder
+#$AdobeUsersSettingsLNK = Test-Path C:\Users\ENG\Desktop\UserSettings.lnk
+#
+#
+#
+#if($AdobeUsersSettingsLNK -eq 'true'){
+#    Write-Host "UsersettingsLNK:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\UserSettings.lnk" -Destination 'C:\Users\ENG\Desktop'
+#    Write-Host "AdobeUsersSettings" -foreground 'Red'
+#    }
+#
+#if($EncoderControl -eq 'true'){
+#    Write-Host "Encoder:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\encoder" -Destination C:\ -Force -Recurse
+#    Write-Host "Encoder" -foreground 'Red'
+#    }
+#
+#if($env:COMPUTERNAME -eq 'LABO'){
+#    Write-Host 'Rename PC!' -foreground 'Red'
+#    }
+#else{
+#    write-host "PC naam OK: $env:COMPUTERNAME" -foreground 'Green'
+#    }
+#
+#if($ClearDatabase -eq 'true'){
+#    Write-Host "ClearDatabase:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\ClearDatabase.lnk" -Destination C:\Users\ENG\Desktop 
+#    Write-Host "ClearDatabase" -foreground 'Red'
+#    }
+#
+#if($LaadSettings -eq 'true'){ 
+#    Write-Host "LaadSettings:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#     Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\LaadSettings.lnk" -Destination C:\Users\ENG\Desktop
+#     Write-Host "LaadSettings" -foreground 'Red'
+#    }
+#
+#if($BackupSettings -eq 'true'){ 
+#    Write-Host "BackupSettings:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#     Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\BackupSettings.lnk" -Destination C:\Users\ENG\Desktop
+#     Write-Host "BackupSettings" -foreground 'Red'
+#    }
+#
+#if($AdobeExport -eq 'true'){
+#    Write-Host "AdobeExport:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    New-Item -ItemType Directory E:\AdobeExport
+#     Write-Host "AdobeExport" -foreground 'Red'
+#    }
+#
+#if($AdobeImport -eq 'true'){
+#    Write-Host "AdobeImport:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    New-Item -ItemType Directory E:\AdobeImport
+#    Write-Host "AdobeImport" -foreground 'Red'
+#    }
+#
+#if($AdobeProjects -eq 'true'){
+#    Write-Host "AdobeProjects:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    New-Item -ItemType Directory E:\AdobeProjects
+#    Write-Host "AdobeProjects" -foreground 'Red'
+#    }
+#
+#if($P2 -eq 'true'){
+#    Write-Host "P2:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    New-Item -ItemType Directory E:\P2
+#    Write-Host "P2" -foreground 'Red'
+#    }
+#
+#if($Temp -eq 'true'){ 
+#    Write-Host "Temp:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    New-Item -ItemType Directory C:\Temp
+#    Write-Host "Temp" -foreground 'Red'
+#    }
+#
+#if($AdobeUsersSettings -eq 'true'){
+#    Write-Host "AdobeUsersSettings:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    New-Item -ItemType Directory C:\Users\ENG\Documents\AdobeUserSettings
+#    Write-Host "AdobeUsersSettings" -foreground 'Red'
+#    }
+#    
+#if($AdobeProjectsLNK -eq 'true'){
+#    Write-Host "AdobeProjectsLNK:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\AdobeProjects.lnk" -Destination C:\Users\ENG\Desktop
+#    Write-Host "AdobeProjectsLNK" -foreground 'Red'
+#    }
+#
+#if($FaspexLNK -eq 'true'){
+#    Write-Host "FaspexLNK:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\faspex.website" -Destination C:\Users\ENG\Desktop
+#    Write-Host "FaspexLNK" -foreground 'Red'
+#    }
+#
+#if($Encoder -eq 'true'){
+#    Write-Host "EncoderDesktopLNK:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\Encoder.lnk" -Destination C:\Users\ENG\Desktop
+#    Write-Host "EncoderDesktopLNK" -foreground 'Red'
+#    }
+#
+#if($Dagproject -eq 'true'){
+#    Write-Host "Dagproject:OK" -foreground 'Green'
+#}
+#else{
+#    write-host "`n"
+#    Copy-Item "C:\Users\ENG\Desktop\Admin Tools\Scripts\Dagproject.lnk" -Destination C:\Users\ENG\Desktop
+#    Write-Host "Dagproject" -foreground 'Red'
+#    }
+#
+#$ChkFile = "C:\ProgramData\chocolatey\choco.exe" 
+#
+#$FileExists = Test-Path $ChkFile 
+#
+#    If ($FileExists -eq $True) {
+#
+#        Write-Host "Choco already installed"
+#        Write-Host "Installing applications from Chocolatey"
+#        #cup all -y
+#
+#    }
+#
+#    else {
+#
+#        ######################################################
+#
+#        # Install apps using Chocolatey
+#
+#        ######################################################
+#
+#        Write-Host "Installing Chocolatey"
+#
+#        iex ((new-object net.webclient).DownloadString('http://bit.ly/psChocInstall'))
+#
+#        Write-Host
+#
+#    }
+#
+#
+#
+#
+
+
